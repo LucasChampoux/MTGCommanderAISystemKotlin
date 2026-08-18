@@ -1,5 +1,5 @@
-# Pod — Commander AI Opponents
-*(working title — rename freely)*
+# KotPod
+*(working title)*
 
 ## What this is
 
@@ -17,7 +17,7 @@ knowledge of the game. This project removes that bottleneck for practice and
 deck-testing, and eventually for the social/political side of the format
 (see Non-goals for what's explicitly deferred).
 
-## Scope — Phase 1
+## Essentials — Phase 1
 
 - Play a full Commander game, locally, against one AI-controlled opponent
   running one imported deck.
@@ -28,14 +28,12 @@ deck-testing, and eventually for the social/political side of the format
 - One agent, bound to one deck, controlling combat, targeting, and other
   decision points in place of Forge's default heuristic AI.
 
-## Non-goals — Phase 1
+## Nice-to-Haves — Phase 1
 
 - A full 4-player pod / multiple simultaneous AI opponents. The
   architecture shouldn't preclude this later, but v1 targets 1v1.
 - Table talk, negotiation, or political play between agents.
 - Cross-session memory, reputation, or grudge-modeling between agents.
-  Real, separate, later phase — deserves its own design doc once Phase 1
-  actually plays a correct game.
 - Networked or remote play. Local only.
 
 ## Constraints
