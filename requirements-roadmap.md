@@ -10,15 +10,19 @@ schedule.
 
 ### Deck import
 - **FR-1** — Import a full Commander decklist, including the designated
-  commander(s), from a Moxfield deck URL. *(ADR 0002)*
-- **FR-2** — Fall back to parsing a manually-provided Moxfield plaintext
-  export if the API import path fails. *(ADR 0002)*
+  commander(s), from a manually-exported Moxfield decklist.
+  *(ADR 0008)*
+- **FR-2** — Correctly identify the designated commander(s) during
+  import regardless of which Moxfield export format (plain text or CSV)
+  is used. *(ADR 0008)*
 - **FR-3** — Persist an imported deck locally so it doesn't need
   re-importing every session.
 
 ### Card data
-- **FR-4** — Resolve card data (oracle text, mana cost, type line, image)
-  for every card in an imported deck via the Scryfall API. *(ADR 0003)*
+- **FR-4** — Resolve card data (oracle text, mana cost, type line,
+  image) for every card in an imported deck via the Scryfall API,
+  matching the exact printing (set + collector number) captured at
+  import. *(ADR 0003, ADR 0008)*
 - **FR-5** — Cache resolved card data locally, keyed by Oracle ID; only
   fetch cards not already cached. *(ADR 0003)*
 - **FR-6** — Support refreshing a cached card's data on demand, for
@@ -56,9 +60,9 @@ schedule.
   machine; the game is playable without any cloud service hosting game
   state.
 - **NFR-2 — Scoped network dependency.** Internet is required for
-  Moxfield import, Scryfall lookups on a cache miss, and Claude API
-  calls for agent decisions from M6 onward — not for the game loop
-  itself. *(ADR 0005)*
+  Scryfall lookups on a cache miss and Claude API calls for agent
+  decisions from M6 onward. Deck import (ADR 0008) and the game loop
+  itself need no network access. *(ADR 0005)*
 - **NFR-3 — No persistent full card mirror.** No local copy of the
   entire MTG card database; only cards actually seen get cached.
   *(ADR 0003)*
@@ -89,9 +93,10 @@ built directly in Forge's own format. *Done when:* a full game reaches a
 win/loss with Lucas's actual commander deck, no import pipeline involved
 yet. *(ADR 0004)*
 
-**M3 — Moxfield import.** Deck Importer turns a real Moxfield URL into a
-Forge-loadable deck. *Done when:* the same deck from M2 loads via
-Moxfield import instead of manual entry. *(FR-1, FR-2, FR-3)*
+**M3 — Moxfield import.** Deck Importer turns an exported Moxfield
+decklist into a Forge-loadable deck. *Done when:* the same deck from M2
+loads via the exported decklist instead of manual entry.
+*(FR-1, FR-2, FR-3, ADR 0008)*
 
 **M4 — Scryfall card cache.** Card data for that deck resolves via
 Scryfall and caches locally. *Done when:* card data for the full deck is
