@@ -53,7 +53,7 @@ Commander is a social, multiplayer format, and assembling a consistent pod —ti
 | Card Cache        | Resolve and locally cache card data from Scryfall            |
 | Game Engine       | Forge, run in-process, enforcing all MTG/Commander rules      |
 | Agent Controller  | Per-deck `PlayerController` subclass routing decisions to an agent, logging reasoning per session |
-| Agent Identity Store | Per-deck layered context (preface, decklist self-assessment, played-experience memeory) an agent draws on |
+| Agent Identity Store | Per-deck layered context (preface, decklist self-assessment, played-experience memory) an agent draws on |
 
 ## Status
 
