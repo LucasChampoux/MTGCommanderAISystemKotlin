@@ -1,6 +1,6 @@
 # ADR 0002: Deck Import — Moxfield
 
-**Status:** Accepted
+**Status:** Superseded by ADR 0008
 **Date:** 2026-08-18
 
 ## Context
