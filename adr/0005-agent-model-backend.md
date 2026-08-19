@@ -22,10 +22,7 @@ Use the Claude API as the model backend for agent decision-making.
   on cost and independence grounds, but not adopted now — current
   hardware isn't there yet. Not rejected in principle; worth revisiting
   if that changes.
-- **Other hosted APIs.** Not seriously evaluated — no particular reason
-  to introduce a second AI vendor into a project already built around
-  Claude as the design partner.
-
+  
 ## Consequences
 
 - Real, ongoing per-call cost, unlike a free local model — worth
